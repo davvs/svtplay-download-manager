@@ -19,7 +19,7 @@ def updateFromFeed(serieDb, db):
         ep = EpisodeDb.getFromDb(serieDb.name, episode.id, db) or \
             EpisodeDb.create(episode.id, serieDb.name, episode.title, episode.link, episode.published)
 
-        if serieDb.episodes[ep.id] is None:
+        if not ep.id in serieDb.episodes:
             serieDb.episodes[ep.id] = ep.name
             print "Appended " + ep.id + " - " + ep.name + " Tot %d" % len(serieDb.episodes)
         ep.saveToDb(db)
