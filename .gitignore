@@ -1,1 +1,5 @@
 conf
+TODO
+scripts
+state
+*/*.pyc
