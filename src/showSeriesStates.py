@@ -15,7 +15,7 @@ def showSeriesStates(serieDb, db):
     for id,title in serieDb.episodes.iteritems():
         ep = EpisodeDb.getFromDb(serieDb.name, id, db)
         linkOp = ep.link if ep is not None else "No link"
-        print "  Episode [%s]: %s, %s" % (title, linkOp, ep.publishDate)
+        print "  Ep[%s]: %s, %s" % (title[0:20], linkOp[0:20], ep.publishDate[0:22])
 
 def main():
     (dbpath,series) = getConf()
