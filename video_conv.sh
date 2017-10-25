@@ -1,6 +1,6 @@
 #!/bin/bash
-FILES=/Users/pontus.lundwall/Desktop/video-tests/*
-OUT=/Users/pontus.lundwall/Desktop/video-tests/out
+FILES=/tmp/video-tests/*
+OUT=/tmp/video-tests/out
 FF=/usr/local/bin/ffmpeg
 for f in $FILES
 do
