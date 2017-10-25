@@ -11,11 +11,11 @@ from database import openDb
 from database import saveDb
 
 def showSeriesStates(serieDb, db):
-    print "Serie " + serieDb.name
+    print "** %s **" % serieDb.name
     for id,title in serieDb.episodes.iteritems():
         ep = EpisodeDb.getFromDb(serieDb.name, id, db)
         linkOp = ep.link if ep is not None else "No link"
-        print "  Ep[%s]: %s, %s" % (title[0:20], linkOp[0:20], ep.publishDate[0:22])
+        print "  %s: [%s] %s" % (title, linkOp, ep.publishDate)
 
 def main():
     (dbpath,series) = getConf()
@@ -27,7 +27,7 @@ def main():
         if serieDb is None:
             print "serie " + name + " is None"
         else:
-            print "Showing serie " + serieDb.name
             showSeriesStates(serieDb, db)
+        print ""
 
 main()
